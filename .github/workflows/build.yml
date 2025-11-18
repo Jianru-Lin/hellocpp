@@ -2,7 +2,17 @@ name: Build
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
-  build-project:
+  build-project-ubuntu:
+    name: Build Project
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v4.2.2
+
+      - name: Build Project
+        uses: threeal/cmake-action@v2.1.0
+
+  build-project-windows:
     name: Build Project
     runs-on: windows-latest
     steps:
